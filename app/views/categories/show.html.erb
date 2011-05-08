@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @category.libelle %></h1>
+
+<center><%= will_paginate_scica @questions %></center><br />
+<% @questions.each do |question| %>
+<div class='question'>
+  <%= nl2br question.description %>
+  <div class='question_foot'>
+    <%= pluralize(question.nb_reponse, 'reponse', 'reponses') %> 
+    <% if user_signed_in? %>
+      | <%= current_user.a_repondu_a?(question) ? (link_to raw("<span style='color:red'>r&eacute;pondre</span>"), question) : (link_to raw("r&eacute;pondre"), question) %>
+    <% else %>
+      | <%= (link_to raw("r&eacute;pondre"), question) %>
+    <% end%>
+    | <%= pluralize(question.points, 'point', 'points')%> 
+  </div>
+</div>
+<% end %>
+<center><%= will_paginate_scica @questions %></center>
+
+<% if user_est_admin? %>
+<%= link_to raw('Ajouter une question'), new_question_path %>
+<% end %>

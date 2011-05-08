@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <center><h2><%= nl2br @question.description %></h2></center>
+</p>
+
+<hr />
+<%= form_tag(reponse_question_path(@question), :method => "post") do %>
+  <center>
+    r&eacute;ponse : <%= text_field_tag :reponse, '', :class => 'champ_reponse' %>
+    <%= submit_tag("valider") %>
+  </center>
+<% end %>

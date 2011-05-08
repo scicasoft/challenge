@@ -1,0 +1,41 @@
+body{margin:auto;width:100%;min-width:950px;background-color:#ffffd4;color:#363636;font-family:'Trebuchet MS',Verdana,Tahoma,sans-serif;font-size:12px}
+#tete{padding-top:10px;padding-bottom:10px;width:100%;height:20px;display:block;margin:0;background-color:#bababa;-webkit-box-shadow:0 0 10px gray;-moz-box-shadow:0 0 10px gray}
+#tete_content{width:80%;min-width:700px;margin:auto;font-size:14px}
+#corps{margin-top:30px}
+#corps_content{width:80%;min-width:700px;margin:auto}
+
+.tableau_ligne:hover{background-color:#F0F0F0}
+.tableau{-webkit-box-shadow:0 0 5px gray;-moz-box-shadow:0 0 5px gray;margin-bottom:10px}
+.tableau th{height:20px;text-align:center;background-color:#bababa;color:#22427C;text-shadow:0 3px 3px rgba(0,0,0,.3);font-weight:normal;border-bottom:1px solid #15928E}
+.tableau td{height:30px;font-weight:normal;border-bottom:1px dotted #15928E}
+.field_with_errors{display:inline}
+
+a{text-decoration:none}
+
+.question {
+  width:98%;
+  padding:10px;
+  margin-bottom:25px;
+  font-size:17px;
+  background-color:#efefef;
+  -webkit-box-shadow:0 0 5px gray;
+  -moz-box-shadow:0 0 5px gray;
+}
+  
+.question_foot {
+  font-size:10px;
+  text-align:right;
+}
+
+.champ_reponse {
+  border:none;
+  width:300px;
+  font-size:14px;
+  -webkit-box-shadow:0 0 5px gray;
+  -moz-box-shadow:0 0 5px gray;
+  padding:2px;
+}
+
+#notice {
+  color:green;
+}

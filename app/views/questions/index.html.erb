@@ -1,0 +1,34 @@
+<h1>&Eacute;preuves</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Category</th>
+    <th>Description</th>
+    <th>Reponse</th>
+    <th>Points</th>
+    <th>Nb reponse</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @questions.each do |question| %>
+  <tr>
+    <td><%= question.user.email %></td>
+    <td><%= question.category.libelle %></td>
+    <td><%= question.description %></td>
+    <td><%= question.reponse %></td>
+    <td><%= question.points %></td>
+    <td><%= question.nb_reponse %></td>
+    <td><%= link_to 'Show', question %></td>
+    <td><%= link_to 'Edit', edit_question_path(question) %></td>
+    <td><%= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if user_signed_in? %>
+<%= link_to 'Ajouter une question', new_question_path %>
+<% end %>

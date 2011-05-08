@@ -1,0 +1,27 @@
+<h2>Inscription</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <p><%= f.label :email, "E-mail" %><br />
+  <%= f.text_field :email %></p>
+
+  <p><%= f.label :password, "Mot de passe" %><br />
+  <%= f.password_field :password %></p>
+
+  <p><%= f.label :password_confirmation, "Confirmation mot de passe" %><br />
+  <%= f.password_field :password_confirmation %></p>
+  
+  <p><%= f.label :prenom %><br />
+  <%= f.text_field :prenom %></p>
+  
+  <p><%= f.label :nom %><br />
+  <%= f.text_field :nom %></p>
+  
+  <p><%= f.label :twitter, "Pseudo Twitter" %><br />
+  <%= f.text_field :twitter %></p>
+
+  <p><%= f.submit "S'inscrire" %></p>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

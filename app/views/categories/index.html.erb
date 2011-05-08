@@ -1,0 +1,20 @@
+<div style='font-size:30px'>
+  <center>
+<table cellpadding='10px'>
+<tr>
+</tr>
+<% @categories.each do |category| %>
+<tr>
+  <td><%= link_to category.libelle, category %></td>
+  <td><%= pluralize(category.questions.count, 'question', 'questions') %></td>
+</tr>
+<% end %>
+</table>
+</div>
+</center>
+<br />
+
+<% if user_est_admin? %>
+<%= link_to raw('Ajouter une cat&eacute;gorie'), new_category_path %>
+| <%= link_to raw('Ajouter une question'), new_question_path %>
+<% end %>
