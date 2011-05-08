@@ -1,0 +1,27 @@
+<h1>classement</h1>
+
+<center><%= will_paginate_scica @users %></center><br />
+<table class='tableau' width='100%'>
+  <tr>
+    <th></th>
+    <th>NOM</th>
+    <th>PRENOM</th>
+    <th>TWITTER</th>
+    <th>POINTS</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td width='30px' align='center'>
+    <% begin %>
+      <%= image_tag Twitter.user(user.twitter).profile_image_url, :size => '25x25' %>
+    <% rescue %>
+    <% end %>
+    </td>
+    <td><%= user.nom %></td>
+    <td><%= user.prenom %></td>
+    <td><%= link_to user.twitter, "http://www.twitter.com/#{user.twitter}" %></td>
+    <td width='75px' align='center'><%= user.points %></td>
+  </tr>
+  <% end %>
+</table>
+<center><%= will_paginate_scica @users %></center><br />
