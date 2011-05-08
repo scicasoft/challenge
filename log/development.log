@@ -1,1 +1,449 @@
 
+
+
+Started GET "/categories/1" for 127.0.0.1 at Sun May 08 17:50:51 +0000 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (1.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+  [1m[36mQuestion Load (0.9ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE ("questions"."category_id" = 1) LIMIT 10 OFFSET 0[0m
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) AND ("users"."remember_token" = 'dEhkCfkhD8Iwdfx-NIwC') LIMIT 1
+  [1m[36mAREL (26.2ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-05-08 17:50:52.582168', "sign_in_count" = 13, "current_sign_in_at" = '2011-05-08 17:50:52.580656', "last_sign_in_at" = '2011-05-08 13:00:18.413601' WHERE ("users"."id" = 1)[0m
+  [1m[35mQuestion Load (0.7ms)[0m  SELECT "questions"."id" FROM "questions" INNER JOIN "users_questions" ON "questions".id = "users_questions".question_id WHERE ("users_questions".user_id = 1 ) AND ("questions"."id" = 1) LIMIT 1
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT "questions"."id" FROM "questions" INNER JOIN "users_questions" ON "questions".id = "users_questions".question_id WHERE ("users_questions".user_id = 1 ) AND ("questions"."id" = 2) LIMIT 1[0m
+  [1m[35mQuestion Load (0.4ms)[0m  SELECT "questions"."id" FROM "questions" INNER JOIN "users_questions" ON "questions".id = "users_questions".question_id WHERE ("users_questions".user_id = 1 ) AND ("questions"."id" = 3) LIMIT 1
+Rendered categories/show.html.erb within layouts/application (468.4ms)
+Completed 200 OK in 639ms (Views: 522.8ms | ActiveRecord: 31.6ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at Sun May 08 17:50:52 +0000 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1[0m
+  [1m[35mQuestion Load (0.8ms)[0m  SELECT "questions".* FROM "questions" WHERE ("questions"."category_id" = 1) LIMIT 10 OFFSET 0
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) AND ("users"."remember_token" = 'dEhkCfkhD8Iwdfx-NIwC') LIMIT 1[0m
+  [1m[35mAREL (98.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2011-05-08 17:50:52.580656', "updated_at" = '2011-05-08 17:50:53.098996', "sign_in_count" = 14, "current_sign_in_at" = '2011-05-08 17:50:53.097984' WHERE ("users"."id" = 1)
+  [1m[36mQuestion Load (0.5ms)[0m  [1mSELECT "questions"."id" FROM "questions" INNER JOIN "users_questions" ON "questions".id = "users_questions".question_id WHERE ("users_questions".user_id = 1 ) AND ("questions"."id" = 1) LIMIT 1[0m
+  [1m[35mQuestion Load (0.5ms)[0m  SELECT "questions"."id" FROM "questions" INNER JOIN "users_questions" ON "questions".id = "users_questions".question_id WHERE ("users_questions".user_id = 1 ) AND ("questions"."id" = 2) LIMIT 1
+  [1m[36mQuestion Load (0.5ms)[0m  [1mSELECT "questions"."id" FROM "questions" INNER JOIN "users_questions" ON "questions".id = "users_questions".question_id WHERE ("users_questions".user_id = 1 ) AND ("questions"."id" = 3) LIMIT 1[0m
+Rendered categories/show.html.erb within layouts/application (228.2ms)
+Completed 200 OK in 319ms (Views: 170.9ms | ActiveRecord: 102.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Sun May 08 17:50:55 +0000 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (1.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mSQL (22.8ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 1)[0m
+  [1m[35mSQL (0.6ms)[0m  SELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 2)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered categories/index.html.erb within layouts/application (230.2ms)
+Completed 200 OK in 262ms (Views: 223.5ms | ActiveRecord: 25.1ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at Sun May 08 17:50:58 +0000 2011
+  Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered devise/registrations/edit.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 107ms (Views: 60.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at Sun May 08 17:51:06 +0000 2011
+  Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"43T2g2saNBiQwfWOLwtA9RpUQ42zBsTEV65PziWq4hk=", "utf8"=>"\342\234\223", "user"=>{"prenom"=>"Cheikh Sidya", "nom"=>"CAMARA", "current_password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "twitter"=>"scicasoft"}}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: prenom, nom, twitter
+Rendered devise/registrations/edit.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 501ms (Views: 44.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at Sun May 08 17:51:14 +0000 2011
+  Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"43T2g2saNBiQwfWOLwtA9RpUQ42zBsTEV65PziWq4hk=", "utf8"=>"\342\234\223", "user"=>{"prenom"=>"Cheikh Sidya", "nom"=>"CAMARA", "current_password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "twitter"=>"scicasoft"}}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: prenom, nom, twitter
+Rendered devise/registrations/edit.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 258ms (Views: 44.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at Sun May 08 17:51:21 +0000 2011
+  Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"43T2g2saNBiQwfWOLwtA9RpUQ42zBsTEV65PziWq4hk=", "utf8"=>"\342\234\223", "user"=>{"prenom"=>"Cheikh Sidya", "nom"=>"CAMARA", "current_password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "twitter"=>"scicasoft"}}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: prenom, nom, twitter
+Rendered devise/registrations/edit.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 242ms (Views: 43.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at Sun May 08 17:51:27 +0000 2011
+  Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"43T2g2saNBiQwfWOLwtA9RpUQ42zBsTEV65PziWq4hk=", "utf8"=>"\342\234\223", "user"=>{"prenom"=>"Cheikh Sidya", "nom"=>"CAMARA", "current_password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "twitter"=>"scicasoft"}}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: prenom, nom, twitter
+Rendered devise/registrations/edit.html.erb within layouts/application (160.2ms)
+Completed 200 OK in 380ms (Views: 184.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Sun May 08 17:51:29 +0000 2011
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mAREL (40.2ms)[0m  [1mUPDATE "users" SET "remember_token" = NULL, "updated_at" = '2011-05-08 17:51:30.086237', "remember_created_at" = NULL WHERE ("users"."id" = 1)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 96ms
+
+
+Started GET "/" for 127.0.0.1 at Sun May 08 17:51:30 +0000 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (1.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 1)[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 2)
+Rendered categories/index.html.erb within layouts/application (69.7ms)
+Completed 200 OK in 106ms (Views: 90.3ms | ActiveRecord: 43.1ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Sun May 08 17:51:34 +0000 2011
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (3.0ms)
+Rendered devise/registrations/new.html.erb within layouts/application (57.4ms)
+Completed 200 OK in 250ms (Views: 228.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Sun May 08 17:51:35 +0000 2011
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.3ms)
+Rendered devise/sessions/new.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 82ms (Views: 43.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Sun May 08 17:51:36 +0000 2011
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"se connecter", "authenticity_token"=>"43T2g2saNBiQwfWOLwtA9RpUQ42zBsTEV65PziWq4hk=", "utf8"=>"\342\234\223", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"scicasoft@gmail.com"}}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."email" = 'scicasoft@gmail.com') LIMIT 1[0m
+  [1m[35mAREL (2.2ms)[0m  UPDATE "users" SET "sign_in_count" = 15, "updated_at" = '2011-05-08 17:51:36.789187', "last_sign_in_at" = '2011-05-08 17:50:53.097984', "current_sign_in_at" = '2011-05-08 17:51:36.788153' WHERE ("users"."id" = 1)
+Redirected to http://localhost:3000/
+Completed 302 Found in 207ms
+
+
+Started GET "/" for 127.0.0.1 at Sun May 08 17:51:36 +0000 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 1)
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 2)[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered categories/index.html.erb within layouts/application (215.0ms)
+Completed 200 OK in 261ms (Views: 244.6ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at Sun May 08 17:51:38 +0000 2011
+  Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered devise/registrations/edit.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 94ms (Views: 43.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at Sun May 08 17:51:41 +0000 2011
+  Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"43T2g2saNBiQwfWOLwtA9RpUQ42zBsTEV65PziWq4hk=", "utf8"=>"\342\234\223", "user"=>{"prenom"=>"Cheikh Sidya", "nom"=>"CAMARA", "current_password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "twitter"=>"scicasoft"}}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+WARNING: Can't mass-assign protected attributes: prenom, nom, twitter
+  [1m[36mUser Load (11.8ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('scicasoft@gmail.com')) AND ("users".id <> 1) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 245ms
+
+
+Started GET "/" for 127.0.0.1 at Sun May 08 17:51:42 +0000 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (1.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 1)[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 2)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered categories/index.html.erb within layouts/application (108.2ms)
+Completed 200 OK in 158ms (Views: 139.9ms | ActiveRecord: 15.2ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at Sun May 08 17:51:45 +0000 2011
+  Processing by Devise::RegistrationsController#edit as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered devise/registrations/edit.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 111ms (Views: 70.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at Sun May 08 17:51:54 +0000 2011
+  Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"43T2g2saNBiQwfWOLwtA9RpUQ42zBsTEV65PziWq4hk=", "utf8"=>"\342\234\223", "user"=>{"prenom"=>"Cheikh Sidy", "nom"=>"CAMARA", "current_password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "twitter"=>"scicasoft"}}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: prenom, nom, twitter
+Rendered devise/registrations/edit.html.erb within layouts/application (24.8ms)
+Completed 200 OK in 242ms (Views: 42.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at Sun May 08 17:51:58 +0000 2011
+  Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"43T2g2saNBiQwfWOLwtA9RpUQ42zBsTEV65PziWq4hk=", "utf8"=>"\342\234\223", "user"=>{"prenom"=>"Cheikh Sidy", "nom"=>"CAMARA", "current_password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "twitter"=>"scicasoft"}}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: prenom, nom, twitter
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('scicasoft@gmail.com')) AND ("users".id <> 1) LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 215ms
+
+
+Started GET "/" for 127.0.0.1 at Sun May 08 17:51:58 +0000 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 1)
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 2)[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered categories/index.html.erb within layouts/application (224.9ms)
+Completed 200 OK in 265ms (Views: 249.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at Sun May 08 17:52:00 +0000 2011
+  Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered devise/registrations/edit.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 95ms (Views: 42.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at Sun May 08 17:52:32 +0000 2011
+  Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"43T2g2saNBiQwfWOLwtA9RpUQ42zBsTEV65PziWq4hk=", "utf8"=>"\342\234\223", "user"=>{"prenom"=>"Cheikh Sidy", "nom"=>"CAMARA", "current_password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "twitter"=>"scicasoft"}}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+WARNING: Can't mass-assign protected attributes: twitter
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('scicasoft@gmail.com')) AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (20.4ms)[0m  UPDATE "users" SET "updated_at" = '2011-05-08 17:52:32.697872', "prenom" = 'Cheikh Sidy' WHERE ("users"."id" = 1)
+Redirected to http://localhost:3000/
+Completed 302 Found in 225ms
+
+
+Started GET "/" for 127.0.0.1 at Sun May 08 17:52:32 +0000 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (1.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 1)
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 2)[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered categories/index.html.erb within layouts/application (93.2ms)
+Completed 200 OK in 133ms (Views: 115.0ms | ActiveRecord: 24.1ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at Sun May 08 17:52:34 +0000 2011
+  Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered devise/registrations/edit.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 83ms (Views: 40.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for 127.0.0.1 at Sun May 08 17:52:38 +0000 2011
+  Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"43T2g2saNBiQwfWOLwtA9RpUQ42zBsTEV65PziWq4hk=", "utf8"=>"\342\234\223", "user"=>{"prenom"=>"Cheikh Sidya", "nom"=>"CAMARA", "current_password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "twitter"=>"scicasoft"}}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+WARNING: Can't mass-assign protected attributes: twitter
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('scicasoft@gmail.com')) AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (1.7ms)[0m  UPDATE "users" SET "prenom" = 'Cheikh Sidya', "updated_at" = '2011-05-08 17:52:39.039549' WHERE ("users"."id" = 1)
+Redirected to http://localhost:3000/
+Completed 302 Found in 204ms
+
+
+Started GET "/" for 127.0.0.1 at Sun May 08 17:52:39 +0000 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (1.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 1)
+  [1m[36mSQL (0.7ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 2)[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered categories/index.html.erb within layouts/application (97.3ms)
+Completed 200 OK in 135ms (Views: 118.3ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Sun May 08 17:52:41 +0000 2011
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 50ms
+
+
+Started GET "/" for 127.0.0.1 at Sun May 08 17:52:41 +0000 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (1.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 1)[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 2)
+Rendered categories/index.html.erb within layouts/application (78.3ms)
+Completed 200 OK in 118ms (Views: 100.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Sun May 08 17:52:44 +0000 2011
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (3.8ms)
+Rendered devise/registrations/new.html.erb within layouts/application (47.6ms)
+Completed 200 OK in 94ms (Views: 72.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Sun May 08 17:53:33 +0000 2011
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (5.0ms)
+Rendered devise/sessions/new.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 86ms (Views: 44.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Sun May 08 17:53:34 +0000 2011
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (2.5ms)
+Rendered devise/registrations/new.html.erb within layouts/application (39.6ms)
+Completed 200 OK in 89ms (Views: 65.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Sun May 08 17:53:37 +0000 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 1)
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 2)[0m
+Rendered categories/index.html.erb within layouts/application (187.6ms)
+Completed 200 OK in 230ms (Views: 215.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Sun May 08 18:17:54 +0000 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (6.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 1)
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 2)[0m
+Rendered categories/index.html.erb within layouts/application (84.8ms)
+Completed 200 OK in 151ms (Views: 101.6ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Sun May 08 18:17:57 +0000 2011
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.2ms)
+Rendered devise/sessions/new.html.erb within layouts/application (26.1ms)
+Completed 200 OK in 114ms (Views: 72.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Sun May 08 18:17:59 +0000 2011
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"se connecter", "authenticity_token"=>"43T2g2saNBiQwfWOLwtA9RpUQ42zBsTEV65PziWq4hk=", "utf8"=>"\342\234\223", "user"=>{"remember_me"=>"1", "password"=>"[FILTERED]", "email"=>"scicasoft@gmail.com"}}
+  [1m[35mSQL (0.9ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."email" = 'scicasoft@gmail.com') LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."remember_token" = 'bIkZGRKOGAxMAvDjGjGV') LIMIT 1
+  [1m[36mAREL (46.2ms)[0m  [1mUPDATE "users" SET "remember_token" = 'bIkZGRKOGAxMAvDjGjGV', "updated_at" = '2011-05-08 18:17:59.770192', "remember_created_at" = '2011-05-08 18:17:59.769626' WHERE ("users"."id" = 1)[0m
+  [1m[35mAREL (7.0ms)[0m  UPDATE "users" SET "current_sign_in_at" = '2011-05-08 18:17:59.858545', "last_sign_in_at" = '2011-05-08 17:51:36.788153', "updated_at" = '2011-05-08 18:17:59.860355', "sign_in_count" = 16 WHERE ("users"."id" = 1)
+Redirected to http://localhost:3000/
+Completed 302 Found in 395ms
+
+
+Started GET "/" for 127.0.0.1 at Sun May 08 18:17:59 +0000 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (2.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 1)
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 2)[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered categories/index.html.erb within layouts/application (201.2ms)
+Completed 200 OK in 244ms (Views: 226.9ms | ActiveRecord: 60.9ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at Sun May 08 18:18:01 +0000 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1[0m
+  [1m[35mQuestion Load (0.9ms)[0m  SELECT "questions".* FROM "questions" WHERE ("questions"."category_id" = 1) LIMIT 10 OFFSET 0
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mQuestion Load (0.5ms)[0m  SELECT "questions"."id" FROM "questions" INNER JOIN "users_questions" ON "questions".id = "users_questions".question_id WHERE ("users_questions".user_id = 1 ) AND ("questions"."id" = 1) LIMIT 1
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT "questions"."id" FROM "questions" INNER JOIN "users_questions" ON "questions".id = "users_questions".question_id WHERE ("users_questions".user_id = 1 ) AND ("questions"."id" = 2) LIMIT 1[0m
+  [1m[35mQuestion Load (0.4ms)[0m  SELECT "questions"."id" FROM "questions" INNER JOIN "users_questions" ON "questions".id = "users_questions".question_id WHERE ("users_questions".user_id = 1 ) AND ("questions"."id" = 3) LIMIT 1
+Rendered categories/show.html.erb within layouts/application (172.1ms)
+Completed 200 OK in 259ms (Views: 211.9ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at Sun May 08 18:18:12 +0000 2011
+  Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.5ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE ("questions"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered questions/show.html.erb within layouts/application (61.6ms)
+Completed 200 OK in 264ms (Views: 88.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Sun May 08 18:18:47 +0000 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (1.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 1)[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 2)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered categories/index.html.erb within layouts/application (83.9ms)
+Completed 200 OK in 123ms (Views: 105.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Sun May 08 18:18:54 +0000 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (1.1ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 1)[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 2)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered categories/index.html.erb within layouts/application (218.4ms)
+Completed 200 OK in 255ms (Views: 239.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at Sun May 08 18:18:56 +0000 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+  [1m[36mQuestion Load (0.7ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE ("questions"."category_id" = 1) LIMIT 10 OFFSET 0[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mQuestion Load (0.5ms)[0m  [1mSELECT "questions"."id" FROM "questions" INNER JOIN "users_questions" ON "questions".id = "users_questions".question_id WHERE ("users_questions".user_id = 1 ) AND ("questions"."id" = 1) LIMIT 1[0m
+  [1m[35mQuestion Load (0.5ms)[0m  SELECT "questions"."id" FROM "questions" INNER JOIN "users_questions" ON "questions".id = "users_questions".question_id WHERE ("users_questions".user_id = 1 ) AND ("questions"."id" = 2) LIMIT 1
+  [1m[36mQuestion Load (0.4ms)[0m  [1mSELECT "questions"."id" FROM "questions" INNER JOIN "users_questions" ON "questions".id = "users_questions".question_id WHERE ("users_questions".user_id = 1 ) AND ("questions"."id" = 3) LIMIT 1[0m
+Rendered categories/show.html.erb within layouts/application (77.4ms)
+Completed 200 OK in 149ms (Views: 105.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at Sun May 08 18:18:59 +0000 2011
+  Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.5ms)[0m  SELECT "questions".* FROM "questions" WHERE ("questions"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered questions/show.html.erb within layouts/application (54.5ms)
+Completed 200 OK in 234ms (Views: 72.7ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/questions/reponse/1" for 127.0.0.1 at Sun May 08 18:19:03 +0000 2011
+  Processing by QuestionsController#reponse as HTML
+  Parameters: {"question_id"=>"1", "commit"=>"valider", "reponse"=>"fdgfdf", "authenticity_token"=>"43T2g2saNBiQwfWOLwtA9RpUQ42zBsTEV65PziWq4hk=", "utf8"=>"\342\234\223"}
+  [1m[36mQuestion Load (0.5ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE ("questions"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/questions/1
+Completed 302 Found in 34ms
+
+
+Started GET "/questions/1" for 127.0.0.1 at Sun May 08 18:19:04 +0000 2011
+  Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (0.5ms)[0m  SELECT "questions".* FROM "questions" WHERE ("questions"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1[0m
+  [1m[35mUser Load (1.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered questions/show.html.erb within layouts/application (172.8ms)
+Completed 200 OK in 246ms (Views: 199.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Sun May 08 18:19:18 +0000 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (1.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 1)
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 2)[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered categories/index.html.erb within layouts/application (87.1ms)
+Completed 200 OK in 127ms (Views: 108.4ms | ActiveRecord: 2.8ms)
