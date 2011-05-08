@@ -6,6 +6,8 @@ Challenge::Application.routes.draw do
   resources :questions
   
   post '/questions/reponse/:question_id', :to => 'questions#reponse', :as => :reponse_question
+  
+  get '/classement', :to => 'membres#index', :as => :classement
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

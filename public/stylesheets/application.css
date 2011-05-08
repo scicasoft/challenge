@@ -6,7 +6,7 @@ body{margin:auto;width:100%;min-width:950px;background-color:#ffffd4;color:#3636
 
 .tableau_ligne:hover{background-color:#F0F0F0}
 .tableau{-webkit-box-shadow:0 0 5px gray;-moz-box-shadow:0 0 5px gray;margin-bottom:10px}
-.tableau th{height:20px;text-align:center;background-color:#bababa;color:#22427C;text-shadow:0 3px 3px rgba(0,0,0,.3);font-weight:normal;border-bottom:1px solid #15928E}
+.tableau th{height:20px;text-align:center;background-color:#f1e2be;color:#22427C;text-shadow:0 3px 3px rgba(0,0,0,.3);font-weight:normal;border-bottom:1px solid #15928E}
 .tableau td{height:30px;font-weight:normal;border-bottom:1px dotted #15928E}
 .field_with_errors{display:inline}
 
