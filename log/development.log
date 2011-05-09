@@ -1003,3 +1003,147 @@ Started GET "/classement" for 127.0.0.1 at Sun May 08 19:23:30 +0000 2011
   [1m[36mUser Load (3.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
 Rendered membres/index.html.erb within layouts/application (3189.1ms)
 Completed 200 OK in 3242ms (Views: 3211.8ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon May 09 18:17:36 +0000 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (1.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSQL (12.3ms)[0m  SELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 1)
+  [1m[36mSQL (0.6ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 2)[0m
+Rendered categories/index.html.erb within layouts/application (163.7ms)
+Completed 200 OK in 308ms (Views: 265.6ms | ActiveRecord: 14.3ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at Mon May 09 18:17:47 +0000 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (1.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1[0m
+  [1m[35mQuestion Load (1.2ms)[0m  SELECT "questions".* FROM "questions" WHERE ("questions"."category_id" = 1) LIMIT 10 OFFSET 0
+Rendered categories/show.html.erb within layouts/application (156.6ms)
+Completed 200 OK in 339ms (Views: 217.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/questions/1" for 127.0.0.1 at Mon May 09 18:17:57 +0000 2011
+  Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mQuestion Load (0.5ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE ("questions"."id" = 1) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+Rendered questions/show.html.erb within layouts/application (44.3ms)
+Completed 200 OK in 140ms (Views: 93.9ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/questions/reponse/1" for 127.0.0.1 at Mon May 09 18:18:01 +0000 2011
+  Processing by QuestionsController#reponse as HTML
+  Parameters: {"question_id"=>"1", "commit"=>"valider", "reponse"=>"ghkfdjgh", "authenticity_token"=>"va63CcapTrfuy07JPETno6R+769Yx5j22p5sZPRRTlk=", "utf8"=>"\342\234\223"}
+  [1m[36mQuestion Load (0.5ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE ("questions"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/questions/1
+Completed 302 Found in 147ms
+
+
+Started GET "/questions/1" for 127.0.0.1 at Mon May 09 18:18:01 +0000 2011
+  Processing by QuestionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mQuestion Load (5.7ms)[0m  SELECT "questions".* FROM "questions" WHERE ("questions"."id" = 1) LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1[0m
+Rendered questions/show.html.erb within layouts/application (46.1ms)
+Completed 200 OK in 136ms (Views: 75.6ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at Mon May 09 18:19:09 +0000 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+  [1m[36mQuestion Load (0.7ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE ("questions"."category_id" = 1) LIMIT 10 OFFSET 0[0m
+Rendered categories/show.html.erb within layouts/application (50.3ms)
+Completed 200 OK in 117ms (Views: 76.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/classement" for 127.0.0.1 at Mon May 09 18:19:29 +0000 2011
+  Processing by MembresController#index as HTML
+  [1m[35mUser Load (5.4ms)[0m  SELECT "users".* FROM "users" ORDER BY points desc LIMIT 50 OFFSET 0
+Rendered membres/index.html.erb within layouts/application (2320.5ms)
+Completed 200 OK in 2432ms (Views: 2397.4ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon May 09 18:20:47 +0000 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 1)
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 2)[0m
+Rendered categories/index.html.erb within layouts/application (80.0ms)
+Completed 200 OK in 121ms (Views: 105.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at Mon May 09 18:20:49 +0000 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 2) LIMIT 1
+  [1m[36mQuestion Load (0.7ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE ("questions"."category_id" = 2) LIMIT 10 OFFSET 0[0m
+Rendered categories/show.html.erb within layouts/application (44.4ms)
+Completed 200 OK in 209ms (Views: 66.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon May 09 18:20:58 +0000 2011
+  Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (1.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 1)[0m
+  [1m[35mSQL (0.6ms)[0m  SELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 2)
+Rendered categories/index.html.erb within layouts/application (73.5ms)
+Completed 200 OK in 125ms (Views: 106.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at Mon May 09 18:21:13 +0000 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1[0m
+  [1m[35mQuestion Load (0.8ms)[0m  SELECT "questions".* FROM "questions" WHERE ("questions"."category_id" = 1) LIMIT 10 OFFSET 0
+Rendered categories/show.html.erb within layouts/application (48.0ms)
+Completed 200 OK in 225ms (Views: 74.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon May 09 18:21:18 +0000 2011
+  Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (1.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 1)
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) FROM "questions" WHERE ("questions".category_id = 2)[0m
+Rendered categories/index.html.erb within layouts/application (62.4ms)
+Completed 200 OK in 104ms (Views: 87.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at Mon May 09 18:22:46 +0000 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+  [1m[36mQuestion Load (0.8ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE ("questions"."category_id" = 1) LIMIT 10 OFFSET 0[0m
+Rendered categories/show.html.erb within layouts/application (191.9ms)
+Completed 200 OK in 283ms (Views: 241.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at Mon May 09 18:23:21 +0000 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+  [1m[36mQuestion Load (0.7ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE ("questions"."category_id" = 1) LIMIT 10 OFFSET 0[0m
+Rendered categories/show.html.erb within layouts/application (46.4ms)
+Completed 200 OK in 120ms (Views: 74.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at Mon May 09 18:23:56 +0000 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+  [1m[36mQuestion Load (0.7ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE ("questions"."category_id" = 1) LIMIT 10 OFFSET 0[0m
+Rendered categories/show.html.erb within layouts/application (41.0ms)
+Completed 200 OK in 106ms (Views: 67.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at Mon May 09 18:24:02 +0000 2011
+  Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" WHERE ("categories"."id" = 1) LIMIT 1
+  [1m[36mQuestion Load (0.7ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE ("questions"."category_id" = 1) LIMIT 10 OFFSET 0[0m
+Rendered categories/show.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 111ms (Views: 65.5ms | ActiveRecord: 1.4ms)

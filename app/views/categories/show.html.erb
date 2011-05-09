@@ -9,9 +9,9 @@
   <div class='question_foot'>
     <%= pluralize(question.nb_reponse, 'reponse', 'reponses') %> 
     <% if user_signed_in? %>
-      | <%= current_user.a_repondu_a?(question) ? (link_to raw("<span style='color:red'>r&eacute;pondre</span>"), question) : (link_to raw("r&eacute;pondre"), question) %>
+      | <%= current_user.a_repondu_a?(question) ? (link_to raw("<span style='color:red'>r&eacute;soudre</span>"), question) : (link_to raw("r&eacute;pondre"), question) %>
     <% else %>
-      | <%= (link_to raw("r&eacute;pondre"), question) %>
+      | <%= (link_to raw("r&eacute;soudre"), question) %>
     <% end%>
     | <%= pluralize(question.points, 'point', 'points')%> 
   </div>
